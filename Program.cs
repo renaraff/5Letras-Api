@@ -24,6 +24,7 @@ builder.Services.AddScoped<IConteudoRepositorio, ConteudoRepositorio>();
 builder.Services.AddScoped<IDuvidaRepositorio, DuvidaRepositorio>();
 builder.Services.AddScoped<IMateriasRepositorio, MateriasRepositorio>();
 builder.Services.AddScoped<IProfessorRepositorio, ProfessorRepositorio>();
+builder.Services.AddScoped<IAuthRepositorio, AuthRepositorio>();
 
 
 builder.Services.AddCors(options =>

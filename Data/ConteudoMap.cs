@@ -9,8 +9,8 @@ namespace Api.Data
         public void Configure(EntityTypeBuilder<ConteudoModel> builder)
         {
             builder.HasKey(x => x.ConteudoId);
-            builder.Property(x => x.ProfessorId).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.MateriasId).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.ProfessorId).IsRequired();
+            builder.Property(x => x.MateriasId).IsRequired();
             builder.Property(x => x.ConteudoTexto).IsRequired().HasMaxLength(255);
         }
     }

@@ -20,17 +20,17 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetAllConteudos")]
-        public async Task<ActionResult<List<ConteudoModel>>> GetAllConteudos()
+        public async Task<ActionResult<List<ConteudoCompleto>>> GetAllConteudos()
         {
-            List<ConteudoModel> conteudos = await _conteudoRepositorio.GetAll();
+            List<ConteudoCompleto> conteudos = await _conteudoRepositorio.GetAll();
             var json = JsonSerializer.Serialize(conteudos);
             return Ok(json);
         }
 
         [HttpGet("GetConteudoId/{id}")]
-        public async Task<ActionResult<ConteudoModel>> GetConteudoId(int id)
+        public async Task<ActionResult<ConteudoCompleto>> GetConteudoById(int id)
         {
-            ConteudoModel conteudo = await _conteudoRepositorio.GetById(id);
+            ConteudoCompleto conteudo = await _conteudoRepositorio.GetConteudoById(id);
             if (conteudo == null)
             {
                 return NotFound();
@@ -47,7 +47,7 @@ namespace Api.Controllers
             }
 
             ConteudoModel conteudo = await _conteudoRepositorio.InsertConteudo(conteudoModel);
-            return CreatedAtAction(nameof(GetConteudoId), new { id = conteudo.ConteudoId }, conteudo);
+            return CreatedAtAction(nameof(GetConteudoById), new { id = conteudo.ConteudoId }, conteudo);
         }
 
         [HttpPut("UpdateConteudo/{id:int}")]

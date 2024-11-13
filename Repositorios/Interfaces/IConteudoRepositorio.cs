@@ -4,7 +4,9 @@ namespace Api.Repositorios.Interfaces
 {
     public interface IConteudoRepositorio
     {
-        Task<List<ConteudoModel>> GetAll();
+        Task<List<ConteudoCompleto>> GetAll();
+
+        Task<ConteudoCompleto> GetConteudoById(int id);
 
         Task<ConteudoModel> GetById(int id);
 
