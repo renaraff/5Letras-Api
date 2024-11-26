@@ -10,7 +10,6 @@ namespace Api.Data
 
         }
         public DbSet<AlunoModel> Aluno { get; set; }
-        public DbSet<AvaliacaoModel> Avaliacao { get; set; }
         public DbSet<ComentarioModel> Comentario { get; set; }
         public DbSet<ConteudoModel> Conteudo { get; set; }
         public DbSet<DuvidaModel> Duvida { get; set; }
@@ -19,7 +18,6 @@ namespace Api.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AlunoMap());
-            modelBuilder.ApplyConfiguration(new AvaliacaoMap());
             modelBuilder.ApplyConfiguration(new ComentarioMap());
             modelBuilder.ApplyConfiguration(new ConteudoMap());
             modelBuilder.ApplyConfiguration(new DuvidaMap());
